@@ -3,16 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'menu',
     loadChildren: () =>
-      import('./presentation/layouts/layouts.module').then(
-        (m) => m.LayoutsModule
+      import('./first-menu-modules/first-menu-modules.module').then(
+        (m) => m.FirstMenuModulesModule
       ),
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class PagesRoutingModule {}

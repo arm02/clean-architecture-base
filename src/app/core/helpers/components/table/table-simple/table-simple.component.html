@@ -1,0 +1,17 @@
+<table id="customers">
+  <tr>
+    <th>Checkbox</th>
+    <th *ngFor="let column of displayColumn">{{ column.label }}</th>
+  </tr>
+  <tr *ngFor="let loc of datasource; let i = index">
+    <td><input type="checkbox" (change)="actionClick(i)" /></td>
+    <td *ngFor="let column of displayColumn">
+      <ng-container *ngIf="column.key !== 'action'">{{
+        loc[column.key]
+      }}</ng-container>
+      <ng-container *ngIf="column.key === 'action'">
+        <button (click)="actionClick(loc.id)">Action</button>
+      </ng-container>
+    </td>
+  </tr>
+</table>

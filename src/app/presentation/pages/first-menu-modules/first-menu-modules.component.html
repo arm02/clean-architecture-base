@@ -1,0 +1,25 @@
+<app-feature-first-menu [location]="singleLocation"></app-feature-first-menu>
+<input
+  type="text"
+  id="locationname"
+  name="locationname"
+  placeholder="Search By Location Name"
+  [(ngModel)]="query"
+  (keyup.enter)="GetLocation()"
+/>
+<hr />
+<div>
+  <input [(ngModel)]="createPayload.id" type="text" placeholder="Id" />
+  <input [(ngModel)]="createPayload.lokasi" type="text" placeholder="Lokasi" />
+  <select [(ngModel)]="createPayload.status">
+    <option selected>Pilih</option>
+    <option value="Paid">Paid</option>
+    <option value="Unpaid">Unpaid</option>
+  </select>
+  <button (click)="Save()">Simpan</button>
+</div>
+<app-table-simple
+  (actionEvent)="GetSingleLocation($event)"
+  [datasource]="location"
+  [displayColumn]="displayedColumn"
+></app-table-simple>
